@@ -1,0 +1,26 @@
+/* TEST: po nahrání bys měl vidět rámeček celé stránky /
+body { outline: 6px solid magenta !important; }
+
+/ ==== Classic – nechat strom kategorií v levém sidebaru stále rozbalený (desktop) ==== /
+@media (min-width: 992px){
+  / cílení na jakýkoli "category" box v levém sloupci (různé varianty Classicu) /
+  .sidebar [class="categor"] ul,
+  .sidebar [class="categor"] li > ul{
+    display: block !important;
+    max-height: none !important;
+    height: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  / zrušit rozbalování na :hover /
+  .sidebar [class="categor"] li:hover > ul {
+    display: block !important;
+  }
+
+  /* odstranit nežádoucí animace /
+  .sidebar [class="categor"] ul { transition: none !important; }
+
+  /* volitelné: když je kategorií hodně, povolit svislý scroll /
+  .sidebar [class="categor"] { max-height: calc(100vh - 220px); overflow: auto; }
+}
